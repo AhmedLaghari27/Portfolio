@@ -30,4 +30,11 @@ describe('App', () => {
         .getAttribute('aria-expanded'),
     ).toBe('true')
   })
+    it('renders the about section', () => {
+    render(<App />)
+    expect(
+      screen.getByRole('heading', { level: 2, name: /about me/i }),
+    ).toBeTruthy()
+    expect(screen.getByText(/Iqra University/)).toBeTruthy()
+  })
 })
