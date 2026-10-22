@@ -30,11 +30,33 @@ describe('App', () => {
         .getAttribute('aria-expanded'),
     ).toBe('true')
   })
-    it('renders the about section', () => {
+
+  it('renders the about section', () => {
     render(<App />)
     expect(
       screen.getByRole('heading', { level: 2, name: /about me/i }),
     ).toBeTruthy()
-    expect(screen.getByText(/Iqra University/)).toBeTruthy()
+    expect(screen.getByText(/B\.Sc\. Computer Science/)).toBeTruthy()
+  })
+
+  it('renders the projects section', () => {
+    render(<App />)
+    expect(
+      screen.getByRole('heading', { level: 2, name: /things i've built/i }),
+    ).toBeTruthy()
+    expect(
+      screen.getByRole('heading', { level: 3, name: 'AutoCares' }),
+    ).toBeTruthy()
+  })
+
+  it('opens project GitHub links safely in a new tab', () => {
+    render(<App />)
+    const links = screen.getAllByRole('link', { name: /source code on github/i })
+    expect(links.length).toBeGreaterThan(0)
+    links.forEach((link) => {
+      expect(link.getAttribute('href')).toMatch(/^https:\/\/github\.com\//)
+      expect(link.getAttribute('target')).toBe('_blank')
+      expect(link.getAttribute('rel')).toContain('noopener')
+    })
   })
 })
