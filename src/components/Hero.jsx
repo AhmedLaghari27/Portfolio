@@ -52,7 +52,7 @@ export default function Hero() {
       <div className="hero-content">
         <p className="badge reveal" style={{ '--i': 0 }}>
           <span className="badge-dot" aria-hidden="true" />
-          Learning AWS &amp; CI/CD in public
+          Full Stack Developer &amp; AI Engineer
         </p>
 
         <h1 className="hero-title">
@@ -61,7 +61,7 @@ export default function Hero() {
         </h1>
 
         <p className="hero-tagline reveal" style={{ '--i': 3 }}>
-          I build web apps and learn cloud and CI/CD along the way.
+          I build web apps and AI solutions along the way.
         </p>
 
         <div className="hero-actions reveal" style={{ '--i': 4 }}>
